@@ -9,23 +9,23 @@ trait ApiResponser
 
     /**
      * Build success response
-     * @param  string|array $data
+     * @param  string|array $content
      * @param  int $code
      * @return Illuminate\Http\JsonResponse
      */
-    public function successResponse($data, $code = Response::HTTP_OK, $meta = [])
+    public function successResponse($content, $code = Response::HTTP_OK, $meta = [])
     {
-        return response()->json(['meta' => $meta, 'data' => $data, 'code' => $code], $code);
+        return response()->json(['meta' => $meta, 'content' => $content, 'code' => $code], $code);
     }
 
     /**
      * Build created response
-     * @param  string|array $data
+     * @param  string|array $content
      * @return Illuminate\Http\JsonResponse
      */
-    public function createdResponse($data)
+    public function createdResponse($content)
     {
-        return $this->successResponse($data, Response::HTTP_CREATED);
+        return $this->successResponse($content, Response::HTTP_CREATED);
     }
 
     /**
